@@ -30,7 +30,9 @@ print("The shape of X_train:", X_train.shape)
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 model = BertForSequenceClassification.from_pretrained('bert-base-chinese', num_labels=len(occupation_mapping))
-
+#用 bert-base-chinese 作为中文预训练基底
+#BertForSequenceClassification 自动在 BERT 顶部加上一个分类层，num_labels=2，对应这个二分类任务
+#如果没有接任何层的话，transformer会输出两个东西，A:每个token融合了上下文信息的词向量; b:每个句子的向量
 class TextDataset(Dataset):
     def __init__(self, texts, labels, tokenizer, max_length):
         self.texts = texts
