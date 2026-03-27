@@ -56,7 +56,9 @@ class ClinicalTextProcessor:
         
         try:
             # 构建术语参考：匹配的token + 固定示例
-            additional_terms = "F/50 refers to Gender: Female, Age: 50; M/35 refers to Gender: Male, Age: 35"
+            additional_terms = "F/50 refers to Gender: Female, Age: 50; M/35 refers to Gender: Male, Age: 35" \
+            "pTNM: Pathological TNM staging (post-surgery); e.g. pT3N1M1: T=3 (Hugh size tumor has invades through nearby tissues, N=1 (Cancer has spread to nearby regional lymph nodes), M=1 (cancer has spread to distant parts of the body); or cTNM: Clinical staging (pre-treatment tests)"
+
             
             if matches:
                 terminology_ref = f"Here is a Detailed Explanation of the Jargons, Abbreviations, Terminologies that Appears in the Clinical Notes for your reference:\n {chr(10).join(matches)}\n{additional_terms}"
