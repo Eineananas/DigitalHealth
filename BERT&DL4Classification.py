@@ -105,7 +105,7 @@ with torch.no_grad():
 
 print(classification_report(true_labels, preds, target_names=list(occupation_mapping.values())))
 
-model_path = '/home/wtang/transformer_model_rewrite_oct3.pth'
+model_path = '/home/wtang/transformer_model_CLASSIFICATION.pth'
 torch.save(model.state_dict(), model_path)
 print(f"Model saved to {model_path}")
 
